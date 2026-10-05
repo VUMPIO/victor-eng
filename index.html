@@ -1,0 +1,1565 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Victor Hugo Carvalho | Engenheiro Civil - Projetos Estruturais</title>
+    <meta
+      name="description"
+      content="Portfólio de Victor Hugo Carvalho, Engenheiro Civil (UFLA) com foco em projetos estruturais de concreto armado, TQS, alvenaria estrutural e verificação de elementos estruturais."
+    />
+    <meta property="og:title" content="Victor Hugo Carvalho | Engenheiro Civil - Projetos Estruturais" />
+    <meta
+      property="og:description"
+      content="Projeto estrutural completo, experiência em obra de grande porte e competências em TQS, concreto armado e alvenaria estrutural."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0d0d0d" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0d0d0d;
+        --bg-soft: #141414;
+        --panel: rgba(22, 22, 22, 0.76);
+        --panel-solid: #171717;
+        --text: #f5f5f5;
+        --muted: #b8b8b8;
+        --soft: #d8d8d8;
+        --line: rgba(245, 245, 245, 0.12);
+        --accent: #3b82f6;
+        --accent-2: #10b981;
+        --warning: #f97316;
+        --font-title: "Space Grotesk", "Inter", sans-serif;
+        --font-body: "Inter", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 72% 7%, rgba(59, 130, 246, 0.16), transparent 30rem),
+          radial-gradient(circle at 15% 42%, rgba(16, 185, 129, 0.08), transparent 28rem),
+          linear-gradient(180deg, #080808, var(--bg) 42%, #111);
+        color: var(--text);
+        font-family: var(--font-body);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        background-image:
+          linear-gradient(rgba(245, 245, 245, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(245, 245, 245, 0.035) 1px, transparent 1px);
+        background-size: 72px 72px;
+        mask-image: linear-gradient(to bottom, #000 0 70%, transparent);
+        pointer-events: none;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .skip-link {
+        position: fixed;
+        left: 16px;
+        top: 16px;
+        z-index: 100;
+        padding: 10px 14px;
+        background: var(--accent);
+        color: white;
+        transform: translateY(-140%);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .loader {
+        position: fixed;
+        inset: 0;
+        z-index: 40;
+        display: none;
+        place-items: center;
+        background: #080808;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+        animation: loaderFallback 0.5s ease 1.6s forwards;
+      }
+
+      .loader.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .loader__panel {
+        width: min(360px, calc(100vw - 48px));
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .loader__bar {
+        height: 3px;
+        margin-top: 16px;
+        overflow: hidden;
+        background: #202020;
+      }
+
+      .loader__bar i {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: var(--accent);
+        animation: load 1.1s ease forwards;
+      }
+
+      #field {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        opacity: 0.55;
+      }
+
+      .site-header {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 30;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 18px clamp(18px, 4vw, 56px);
+        border-bottom: 1px solid rgba(245, 245, 245, 0.08);
+        background: rgba(8, 8, 8, 0.74);
+        backdrop-filter: blur(18px);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 900;
+      }
+
+      .brand__mark {
+        width: 28px;
+        height: 28px;
+        border: 1px solid var(--accent);
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.28), transparent);
+        clip-path: polygon(50% 0, 100% 28%, 100% 72%, 50% 100%, 0 72%, 0 28%);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: clamp(10px, 1.4vw, 22px);
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .nav a {
+        transition: color 0.2s ease;
+      }
+
+      .nav a:hover,
+      .nav a.is-active {
+        color: var(--text);
+      }
+
+      .header-cta {
+        min-height: 38px;
+        padding: 0 14px;
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid rgba(59, 130, 246, 0.45);
+        background: rgba(59, 130, 246, 0.14);
+        color: #dbeafe;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border: 1px solid var(--line);
+        background: rgba(245, 245, 245, 0.04);
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      .nav-toggle span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: var(--text);
+        transition: transform 0.25s ease, opacity 0.25s ease;
+      }
+
+      .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .section {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 108px 0;
+      }
+
+      .section--tight {
+        padding-top: 70px;
+      }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: var(--accent);
+        font-size: 0.76rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-title);
+        letter-spacing: 0;
+      }
+
+      h1 {
+        max-width: 980px;
+        margin-bottom: 20px;
+        font-size: clamp(3.5rem, 8vw, 7.2rem);
+        line-height: 0.9;
+      }
+
+      h2 {
+        max-width: 850px;
+        margin-bottom: 0;
+        font-size: clamp(2rem, 4vw, 4.2rem);
+        line-height: 1;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.35rem;
+      }
+
+      p {
+        color: var(--muted);
+        line-height: 1.72;
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+        gap: 28px;
+        align-items: end;
+        margin-bottom: 44px;
+      }
+
+      .section-heading p:last-child {
+        margin-bottom: 0;
+      }
+
+      .button {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 0 18px;
+        border: 1px solid var(--line);
+        background: rgba(245, 245, 245, 0.04);
+        color: var(--text);
+        font-weight: 900;
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        border-color: rgba(59, 130, 246, 0.75);
+      }
+
+      .button--primary {
+        border-color: transparent;
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 0 34px rgba(59, 130, 246, 0.26);
+      }
+
+      .button--ghost {
+        color: #dbeafe;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(330px, 0.42fr);
+        gap: clamp(34px, 6vw, 76px);
+        align-items: center;
+        padding-top: 120px;
+      }
+
+      .hero__lead {
+        max-width: 760px;
+        color: var(--soft);
+        font-size: clamp(1.08rem, 1.8vw, 1.34rem);
+        font-weight: 600;
+      }
+
+      .hero__copy {
+        position: relative;
+      }
+
+      .hero__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .quick-info {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-top: 36px;
+      }
+
+      .quick-info span {
+        min-height: 86px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        background: rgba(22, 22, 22, 0.64);
+        backdrop-filter: blur(14px);
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.45;
+      }
+
+      .quick-info strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--text);
+      }
+
+      .profile-card {
+        position: relative;
+        min-height: 640px;
+        overflow: hidden;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        background:
+          radial-gradient(circle at 54% 34%, rgba(59, 130, 246, 0.26), transparent 15rem),
+          linear-gradient(180deg, rgba(245, 245, 245, 0.045), rgba(245, 245, 245, 0.01));
+        box-shadow: 0 24px 90px rgba(0, 0, 0, 0.35);
+      }
+
+      .profile-card::before {
+        content: "";
+        position: absolute;
+        inset: 22px;
+        border: 1px solid rgba(245, 245, 245, 0.12);
+        background-image:
+          linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: linear-gradient(to bottom, black, transparent 78%);
+      }
+
+      .profile-card img {
+        position: absolute;
+        left: 50%;
+        bottom: -3px;
+        z-index: 2;
+        width: min(118%, 620px);
+        max-width: none;
+        transform: translateX(-50%);
+        filter:
+          drop-shadow(0 0 28px rgba(59, 130, 246, 0.22))
+          drop-shadow(0 30px 34px rgba(0, 0, 0, 0.6));
+      }
+
+      .profile-card__tag {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        bottom: 22px;
+        z-index: 3;
+        padding: 16px;
+        border: 1px solid var(--line);
+        background: rgba(8, 8, 8, 0.7);
+        backdrop-filter: blur(16px);
+      }
+
+      .profile-card__tag strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .profile-card__tag span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .glass,
+      .card,
+      .timeline__item,
+      .contact__inner,
+      .case-modal {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 24px 90px rgba(0, 0, 0, 0.28);
+      }
+
+      .about-copy {
+        padding: clamp(24px, 4vw, 44px);
+      }
+
+      .about-copy p:last-child {
+        margin-bottom: 0;
+      }
+
+      .profile-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .profile-grid .card {
+        min-height: 150px;
+        padding: 20px;
+      }
+
+      .card small {
+        display: block;
+        margin-bottom: 18px;
+        color: var(--accent);
+        font-size: 0.72rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .card strong {
+        display: block;
+        color: var(--text);
+        font-family: var(--font-title);
+        font-size: 1.2rem;
+      }
+
+      .card p {
+        margin: 10px 0 0;
+        font-size: 0.94rem;
+      }
+
+      .area-grid,
+      .skills-grid,
+      .software-grid,
+      .value-grid,
+      .education-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .education-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 780px;
+      }
+
+      .area-card,
+      .skill-card,
+      .tool-card,
+      .value-card,
+      .education-card,
+      .course-card {
+        min-height: 180px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        background: rgba(22, 22, 22, 0.68);
+        transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+      }
+
+      .area-card:hover,
+      .skill-card:hover,
+      .tool-card:hover,
+      .value-card:hover,
+      .education-card:hover,
+      .course-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(59, 130, 246, 0.5);
+        background: rgba(59, 130, 246, 0.08);
+      }
+
+      .icon {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 18px;
+        border: 1px solid rgba(59, 130, 246, 0.35);
+        color: #dbeafe;
+        background: rgba(59, 130, 246, 0.12);
+        font-weight: 900;
+      }
+
+      .tag-list,
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag-list span,
+      .tags span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 10px;
+        border: 1px solid rgba(59, 130, 246, 0.24);
+        background: rgba(59, 130, 246, 0.08);
+        color: #dbeafe;
+        font-size: 0.74rem;
+        font-weight: 900;
+      }
+
+      .software-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .tool-card {
+        min-height: 160px;
+      }
+
+      .level {
+        display: inline-flex;
+        margin: 10px 0 12px;
+        padding: 5px 8px;
+        background: rgba(16, 185, 129, 0.12);
+        color: #bbf7d0;
+        font-size: 0.72rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .timeline {
+        position: relative;
+        display: grid;
+        gap: 18px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 18px;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: linear-gradient(180deg, transparent, var(--accent), transparent);
+      }
+
+      .timeline__item {
+        position: relative;
+        margin-left: 46px;
+        padding: 26px;
+      }
+
+      .timeline__item::before {
+        content: "";
+        position: absolute;
+        left: -38px;
+        top: 30px;
+        width: 16px;
+        height: 16px;
+        border: 2px solid var(--accent);
+        background: #0d0d0d;
+      }
+
+      .timeline__year {
+        display: inline-flex;
+        margin-bottom: 14px;
+        color: var(--accent);
+        font-weight: 900;
+      }
+
+      .place {
+        color: var(--text);
+        font-weight: 800;
+      }
+
+      .project-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+
+      .project-card {
+        position: relative;
+        min-height: 420px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #121212;
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.45s ease, filter 0.45s ease;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.06);
+        filter: brightness(1.08);
+      }
+
+      .project-card__content {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        padding-top: 80px;
+        background: linear-gradient(180deg, transparent, rgba(8, 8, 8, 0.84) 42%);
+      }
+
+      .project-card__meta {
+        color: var(--accent);
+        font-size: 0.74rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .case-trigger {
+        margin-top: 12px;
+        border: 0;
+        background: none;
+        color: #dbeafe;
+        cursor: pointer;
+        font-weight: 900;
+        padding: 0;
+      }
+
+      .project-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .project-actions .button,
+      .project-actions .case-trigger {
+        margin-top: 0;
+      }
+
+      .project-actions .case-trigger {
+        min-height: 48px;
+        padding: 0 18px;
+        border: 1px solid rgba(59, 130, 246, 0.45);
+        background: rgba(59, 130, 246, 0.12);
+      }
+
+      dialog {
+        width: min(980px, calc(100% - 28px));
+        max-height: 86vh;
+        padding: 0;
+        border: 1px solid var(--line);
+        background: #111;
+        color: var(--text);
+      }
+
+      dialog::backdrop {
+        background: rgba(0, 0, 0, 0.72);
+        backdrop-filter: blur(8px);
+      }
+
+      .case-modal {
+        padding: clamp(24px, 4vw, 44px);
+        overflow: auto;
+      }
+
+      .case-modal img {
+        width: 100%;
+        margin: 20px 0;
+        border: 1px solid var(--line);
+      }
+
+      .pdf-frame {
+        width: 100%;
+        height: min(72vh, 760px);
+        margin-top: 18px;
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .case-close {
+        float: right;
+        min-height: 36px;
+        border: 1px solid var(--line);
+        background: rgba(245, 245, 245, 0.06);
+        color: var(--text);
+        cursor: pointer;
+      }
+
+      .resume-strip {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: center;
+        padding: clamp(24px, 4vw, 44px);
+        border: 1px solid rgba(59, 130, 246, 0.24);
+        background:
+          linear-gradient(135deg, rgba(59, 130, 246, 0.16), rgba(245, 245, 245, 0.04)),
+          rgba(22, 22, 22, 0.7);
+      }
+
+      .contact__inner {
+        padding: clamp(30px, 6vw, 70px);
+      }
+
+      .contact__links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .contact__links a {
+        padding: 18px;
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-weight: 900;
+        transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .contact__links a:hover {
+        border-color: var(--accent);
+        background: rgba(59, 130, 246, 0.1);
+        color: var(--text);
+      }
+
+      .footer {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 34px 0 44px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        filter: blur(8px);
+        transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+
+      @keyframes load {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(0); }
+      }
+
+      @keyframes loaderFallback {
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+      @media (max-width: 980px) {
+        .nav-toggle {
+          display: flex;
+        }
+
+        .nav {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          z-index: 20;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+          padding: 4px clamp(18px, 4vw, 56px) 18px;
+          background: #0a0a0a;
+          border-bottom: 1px solid rgba(245, 245, 245, 0.08);
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-8px);
+          transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+          pointer-events: none;
+        }
+
+        .nav.is-open {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+          pointer-events: auto;
+        }
+
+        .nav a {
+          padding: 15px 0;
+          border-bottom: 1px solid rgba(245, 245, 245, 0.07);
+          font-size: 0.92rem;
+        }
+
+        .nav a:last-child {
+          border-bottom: 0;
+        }
+
+        .hero,
+        .grid-2,
+        .section-heading,
+        .resume-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .quick-info,
+        .area-grid,
+        .skills-grid,
+        .software-grid,
+        .value-grid,
+        .education-grid,
+        .contact__links {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .profile-card {
+          min-height: 620px;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .section {
+          width: min(100% - 28px, 1180px);
+          padding: 80px 0;
+        }
+
+        .hero {
+          padding-top: 112px;
+        }
+
+        h1 {
+          font-size: clamp(3rem, 15vw, 4.6rem);
+        }
+
+        .quick-info,
+        .profile-grid,
+        .area-grid,
+        .skills-grid,
+        .software-grid,
+        .value-grid,
+        .education-grid,
+        .project-list,
+        .contact__links {
+          grid-template-columns: 1fr;
+        }
+
+        .hero__actions,
+        .button {
+          width: 100%;
+        }
+
+        .profile-card {
+          min-height: 500px;
+        }
+
+        .profile-card img {
+          width: min(140%, 520px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <canvas id="field" aria-hidden="true"></canvas>
+
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Início">
+        <span class="brand__mark"></span>
+        <span>Victor Hugo</span>
+      </a>
+      <nav class="nav" id="primary-nav" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#competencias">Competências</a>
+        <a href="#formacao">Formação</a>
+        <a href="https://wa.me/5535997521004" target="_blank" rel="noreferrer">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-cta" href="assets/curriculo-victor-hugo.pdf" download>Baixar currículo</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu de navegação">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero section" id="inicio">
+        <div class="hero__copy reveal">
+          <p class="eyebrow">Engenheiro Civil / Projetos Estruturais</p>
+          <h1>Victor Hugo Carvalho</h1>
+          <p class="hero__lead">
+            Projetos estruturais de concreto armado com visão de quem já acompanhou a estrutura sendo executada.
+          </p>
+          <p>
+            Engenheiro Civil graduado pela UFLA, com modelagem em TQS, conhecimentos em alvenaria
+            estrutural e estabilidade global, projeto estrutural completo desenvolvido do lançamento ao
+            detalhamento e experiência em obra de 12 torres e 384 apartamentos.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#projetos">Ver projeto estrutural</a>
+            <a class="button button--ghost" href="assets/curriculo-victor-hugo.pdf" download>Baixar currículo</a>
+            <a class="button button--ghost" href="https://wa.me/5535997521004" target="_blank" rel="noreferrer">Entrar em contato</a>
+          </div>
+          <div class="quick-info" aria-label="Resumo profissional">
+            <span><strong>Formação</strong>Bacharel em Engenharia Civil - UFLA, 2026.</span>
+            <span><strong>Foco</strong>Projetos estruturais, concreto armado e TQS.</span>
+            <span><strong>Experiência</strong>Projetos multidisciplinares e obra de grande porte.</span>
+            <span><strong>Disponibilidade</strong>100% remoto e início imediato.</span>
+          </div>
+        </div>
+        <figure class="profile-card reveal" data-delay="120">
+          <img src="assets/victor-formatura-final.png" alt="Victor Hugo usando capacete de obra" />
+          <figcaption class="profile-card__tag">
+            <strong>Engenheiro Civil - Projetos Estruturais</strong>
+            <span>Perfil técnico, analítico e colaborativo.</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section" id="sobre">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Sobre mim</p>
+            <h2>Projeto estrutural com os pés no canteiro.</h2>
+          </div>
+          <p>
+            Engenheiro Civil recém-formado, buscando atuar em escritório de projetos estruturais na
+            análise, verificação e modelagem de estruturas.
+          </p>
+        </div>
+        <div class="grid-2">
+          <article class="about-copy glass reveal">
+            <p>
+              Sou Engenheiro Civil formado pela Universidade Federal de Lavras (2026), com foco em
+              projetos estruturais de concreto armado. Trabalho com modelagem no TQS e tenho base em
+              alvenaria estrutural e estabilidade global. Desenvolvi o projeto estrutural completo de
+              um sobrado real, do lançamento das fundações ao detalhamento das pranchas executivas.
+            </p>
+            <p>
+              Nos estágios em obra, incluindo um empreendimento de 12 torres e 384 apartamentos, conferi
+              a execução contra projeto e normas. Isso me deu um olhar prático para validar concepções
+              estruturais: um bom projeto precisa ser seguro, econômico e executável.
+            </p>
+            <p>
+              Como Diretor de Projetos de empresa júnior, coordenei equipe, prazos e entregas. Hoje
+              busco contribuir com um time de engenharia estrutural com proatividade, capacidade
+              analítica, controle de qualidade e postura colaborativa, inclusive em regime remoto.
+            </p>
+          </article>
+          <div class="profile-grid reveal" data-delay="120">
+            <article class="card"><small>Formação</small><strong>Bacharel em Engenharia Civil</strong><p>Universidade Federal de Lavras - UFLA, 2026.</p></article>
+            <article class="card"><small>Área principal</small><strong>Projetos estruturais</strong><p>Concreto armado, TQS, alvenaria estrutural.</p></article>
+            <article class="card"><small>Perfil</small><strong>Técnico + analítico</strong><p>Verificação, controle de qualidade e visão de execução.</p></article>
+            <article class="card"><small>Disponibilidade</small><strong>Remoto, início imediato</strong><p>Pronto para integrar uma equipe de projetos.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" id="areas">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Áreas de atuação</p>
+            <h2>Estruturas em primeiro lugar, com visão multidisciplinar.</h2>
+          </div>
+          <p>Áreas em que já estudei, pratiquei ou desenvolvi projetos reais.</p>
+        </div>
+        <div class="area-grid">
+          <a class="area-card reveal" href="#projetos"><span class="icon">EST</span><h3>Projetos estruturais</h3><p>Concepção, lançamento e detalhamento de fundações, pilares, vigas e lajes em concreto armado.</p><div class="tag-list"><span>TQS</span><span>Concreto armado</span><span>NBR 6118</span></div></a>
+          <article class="area-card reveal"><span class="icon">VER</span><h3>Verificação estrutural</h3><p>Validação da concepção e dos elementos estruturais, com atenção à estabilidade global da estrutura.</p><div class="tag-list"><span>Estabilidade global</span><span>γz</span><span>Controle de qualidade</span></div></article>
+          <article class="area-card reveal"><span class="icon">ALV</span><h3>Alvenaria estrutural</h3><p>Conhecimentos de concepção e comportamento de edificações em alvenaria estrutural.</p><div class="tag-list"><span>Alvenaria estrutural</span><span>Concepção</span></div></article>
+          <article class="area-card reveal"><span class="icon">BIM</span><h3>Compatibilização</h3><p>Visão multidisciplinar para reduzir inconsistências entre arquitetura, estrutura e instalações.</p><div class="tag-list"><span>Revit</span><span>BIM</span><span>Interferências</span></div></article>
+          <article class="area-card reveal"><span class="icon">OBR</span><h3>Acompanhamento de obras</h3><p>Conferência da execução contra projeto e normas, qualidade dos serviços e apoio ao planejamento.</p><div class="tag-list"><span>Campo</span><span>Controle</span><span>Qualidade</span></div></article>
+          <article class="area-card reveal"><span class="icon">INS</span><h3>Projetos complementares</h3><p>Arquitetônico, elétrico, hidrossanitário e combate a incêndio, com leitura integrada à estrutura.</p><div class="tag-list"><span>QiBuilder</span><span>Elétrico</span><span>Hidrossanitário</span></div></article>
+        </div>
+      </section>
+
+      <section class="section section--tight" id="experiencia">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Experiência profissional</p>
+            <h2>Do canteiro à coordenação de projetos.</h2>
+          </div>
+          <p>Experiências mais recentes primeiro.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline__item reveal">
+            <span class="timeline__year">2025 - 2026</span>
+            <h3>BRZ Empreendimentos - Empresa de Engenharia Civil</h3>
+            <p class="place">Estágio - Acompanhamento de Obras / Junho 2025 a Maio 2026</p>
+            <p>
+              Acompanhamento da execução de empreendimento residencial de grande porte, composto por 12
+              torres e 384 apartamentos. Vivência direta no canteiro de obras, acompanhando diferentes
+              etapas construtivas, controle de qualidade dos serviços, conferência da execução conforme
+              projetos e normas técnicas, acompanhamento de prazos e suporte ao planejamento e organização
+              das atividades da obra.
+            </p>
+            <div class="tags"><span>Obra</span><span>12 torres</span><span>384 apartamentos</span><span>Controle de qualidade</span></div>
+          </article>
+          <article class="timeline__item reveal">
+            <span class="timeline__year">2025</span>
+            <h3>EngMinas - Empresa de Projetos de Engenharia Civil</h3>
+            <p class="place">Estágio - Execução de Projetos / Janeiro a Junho 2025</p>
+            <p>
+              Participação na criação de projetos arquitetônicos e hidrossanitários e colaboração em
+              projetos de prevenção e combate a incêndio, lidando com revisões, prazos e padronização da
+              documentação técnica, com foco em normatização e clareza das entregas.
+            </p>
+            <div class="tags"><span>Estágio</span><span>Escritório de projetos</span><span>Revisões</span><span>Documentação técnica</span></div>
+          </article>
+          <article class="timeline__item reveal">
+            <span class="timeline__year">2024 - 2025</span>
+            <h3>Construjr - Empresa Júnior de Engenharia Civil</h3>
+            <p class="place">Execução de Projetos / Junho 2024 a Junho 2025</p>
+            <p>
+              Experiência na elaboração de projetos arquitetônicos e complementares, incluindo combate a
+              incêndio, elétrico, hidrossanitário e estrutural. Como Assessor da Diretoria de Projetos
+              (jun. a dez. 2024), atuei em análise de viabilidade, definição de escopo, acompanhamento de
+              prazos e coordenação de equipes. Como Diretor de Projetos (jan. a jun. 2025), liderei
+              equipes e coordenei o planejamento e execução dos projetos, com gestão de prazos, definição
+              de estratégias, tomada de decisões e acompanhamento de resultados.
+            </p>
+            <div class="tags"><span>Empresa Júnior</span><span>Diretor de Projetos</span><span>Projetos multidisciplinares</span><span>Liderança</span></div>
+          </article>
+          <article class="timeline__item reveal">
+            <span class="timeline__year">2024</span>
+            <h3>Magalhães Engenharia - Empresa de Engenharia Civil</h3>
+            <p class="place">Estágio - Acompanhamento de Obras / Janeiro a Julho 2024</p>
+            <p>
+              Acompanhamento de obras, garantindo a execução conforme projeto, controle de prazos e
+              custos, fiscalização da qualidade e alinhamento com normas técnicas e segurança.
+            </p>
+            <div class="tags"><span>Estágio</span><span>Acompanhamento de obras</span><span>Controle de qualidade</span><span>Normas técnicas</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--tight" id="projetos">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Projetos</p>
+            <h2>Projeto estrutural completo e projetos complementares.</h2>
+          </div>
+          <p>Pranchas reais em PDF, abertas para análise técnica.</p>
+        </div>
+
+        <div class="project-list">
+          <article class="project-card reveal">
+            <img src="assets/projeto-sobrado/sobrado-modelo-3d.jpg" alt="Modelo estrutural 3D do sobrado: estacas, blocos, pilares, vigas e lajes" loading="lazy" />
+            <div class="project-card__content">
+              <span class="project-card__meta">Estrutural / Concreto armado / Sobrado real</span>
+              <h3>Fundações, pilares, vigas e lajes</h3>
+              <p>Estacas, blocos, 22 pilares, vigas e lajes treliçadas, do lançamento a 10 pranchas executivas.</p>
+              <div class="project-actions">
+                <button class="case-trigger" data-case="case-estrutural">Ver case study</button>
+                <a class="button button--ghost" href="assets/projeto-sobrado/pranchas/prancha-estrutural-completa.pdf" target="_blank" rel="noreferrer">Abrir PDF</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <img src="assets/projeto-arquitetonico/arq-01.jpg" alt="Projeto arquitetônico residencial em Revit" loading="lazy" />
+            <div class="project-card__content">
+              <span class="project-card__meta">Arquitetônico / Revit</span>
+              <h3>Arquitetura residencial em BIM</h3>
+              <p>Modelagem e documentação arquitetônica com visão integrada.</p>
+              <div class="project-actions">
+                <button class="case-trigger" data-case="case-arq">Ver case study</button>
+                <a class="button button--ghost" href="assets/projeto-arquitetonico/prancha-arquitetonico.pdf" target="_blank" rel="noreferrer">Abrir PDF</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <img src="assets/projeto-eletrico/eletrico-01.jpg" alt="Projeto elétrico residencial" loading="lazy" />
+            <div class="project-card__content">
+              <span class="project-card__meta">Elétrico / Residencial</span>
+              <h3>Instalações elétricas</h3>
+              <p>Diagramas, circuitos, cargas e documentação para execução.</p>
+              <div class="project-actions">
+                <button class="case-trigger" data-case="case-ele">Ver case study</button>
+                <a class="button button--ghost" href="assets/projeto-eletrico/prancha-eletrico.pdf" target="_blank" rel="noreferrer">Abrir PDF</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <img src="assets/projeto-hidraulico/hidraulico-01.png" alt="Projeto hidrossanitário residencial" loading="lazy" />
+            <div class="project-card__content">
+              <span class="project-card__meta">Hidrossanitário / QiBuilder</span>
+              <h3>Sistemas hidráulicos</h3>
+              <p>Água fria, água quente, esgoto e águas pluviais do térreo ao pavimento superior.</p>
+              <div class="project-actions">
+                <button class="case-trigger" data-case="case-hid">Ver case study</button>
+                <a class="button button--ghost" href="assets/projeto-hidraulico/prancha-hidraulico.pdf" target="_blank" rel="noreferrer">Abrir PDF</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--tight" id="competencias">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Competências técnicas</p>
+            <h2>O que levo para uma equipe de projetos estruturais.</h2>
+          </div>
+          <p>Competências aplicadas em projeto, escritório e obra.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card reveal"><span class="icon">01</span><h3>Modelagem estrutural</h3><p>Lançamento e processamento de estruturas de concreto armado no TQS e no CypeCAD.</p></article>
+          <article class="skill-card reveal"><span class="icon">02</span><h3>Verificação de elementos</h3><p>Validação da concepção, fundações, pilares, vigas e lajes, com leitura de quadros de armadura.</p></article>
+          <article class="skill-card reveal"><span class="icon">03</span><h3>Estabilidade e alvenaria</h3><p>Base em estabilidade global (γz, efeitos de 2ª ordem) e em alvenaria estrutural.</p></article>
+          <article class="skill-card reveal"><span class="icon">04</span><h3>Controle de qualidade</h3><p>Conferência sistemática de projeto e execução contra normas técnicas, em escritório e em obra.</p></article>
+          <article class="skill-card reveal"><span class="icon">05</span><h3>Detalhamento e documentação</h3><p>Pranchas executivas claras, organizadas e coerentes com a realidade do canteiro.</p></article>
+          <article class="skill-card reveal"><span class="icon">06</span><h3>Suporte e coordenação</h3><p>Experiência como Diretor de Projetos: prazos, escopo, equipe e apoio à tomada de decisão.</p></article>
+        </div>
+      </section>
+
+      <section class="section section--tight" id="softwares">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Softwares e ferramentas</p>
+            <h2>Ferramentas digitais aplicadas à Engenharia Civil.</h2>
+          </div>
+          <p>Ferramentas de cálculo, desenho e modelagem usadas no dia a dia de projeto.</p>
+        </div>
+        <div class="software-grid">
+          <article class="tool-card reveal"><h3>TQS</h3><span class="level">Intermediário</span><p>Modelagem, processamento e análise de estruturas de concreto armado.</p></article>
+          <article class="tool-card reveal"><h3>CypeCAD</h3><span class="level">Intermediário</span><p>Cálculo estrutural, dimensionamento e análise de estruturas.</p></article>
+          <article class="tool-card reveal"><h3>AutoCAD</h3><span class="level">Avançado</span><p>Detalhamento, levantamentos e modificações técnicas com precisão.</p></article>
+          <article class="tool-card reveal"><h3>Revit + BIM</h3><span class="level">Avançado</span><p>Modelagem paramétrica, documentação e compatibilização.</p></article>
+          <article class="tool-card reveal"><h3>Excel</h3><span class="level">Avançado</span><p>Planilhas de cálculo, verificação e controle de informações.</p></article>
+          <article class="tool-card reveal"><h3>QiBuilder</h3><span class="level">Intermediário</span><p>Dimensionamento e projeto de sistemas hidrossanitários residenciais.</p></article>
+          <article class="tool-card reveal"><h3>Enscape</h3><span class="level">Intermediário</span><p>Renderização e visualização em tempo real de modelos 3D.</p></article>
+          <article class="tool-card reveal"><h3>Canva</h3><span class="level">Intermediário</span><p>Peças visuais e apresentações para entregas de projeto.</p></article>
+        </div>
+      </section>
+
+      <section class="section section--tight" id="formacao">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Formação acadêmica</p>
+            <h2>Formação e cursos em estruturas.</h2>
+          </div>
+          <p>Graduação concluída e cursos complementares em estruturas e BIM.</p>
+        </div>
+        <div class="education-grid">
+          <article class="education-card reveal"><span class="icon">U</span><h3>Bacharelado em Engenharia Civil - UFLA</h3><p>Universidade Federal de Lavras, 2020 a 2026. TCC: levantamento de custos para processos de segurança contra incêndio e pânico.</p><div class="tag-list"><span>Estruturas</span><span>Projetos</span><span>Obras</span></div></article>
+          <article class="education-card reveal"><span class="icon">C</span><h3>Cursos complementares</h3><p>Projeto Estrutural na Veia - Prof. Rodrigo Toffolo.<br />Formação BIM 5X - Rafael Zaccari.</p><div class="tag-list"><span>Projeto estrutural</span><span>BIM</span></div></article>
+        </div>
+      </section>
+
+      <section class="section section--tight" id="agregar">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">O que posso agregar</p>
+            <h2>Diferenciais conectados às necessidades de uma equipe.</h2>
+          </div>
+          <p>Pontos ligados às rotinas de uma equipe de projetos estruturais.</p>
+        </div>
+        <div class="value-grid">
+          <article class="value-card reveal"><span class="icon">DOC</span><h3>Controle de processo</h3><p>Disciplina para verificar, registrar e padronizar, garantindo a qualidade do que sai do time.</p></article>
+          <article class="value-card reveal"><span class="icon">OBR</span><h3>Visão de obra</h3><p>Experiência em canteiro para avaliar a exequibilidade da estrutura e antecipar dificuldades de execução.</p></article>
+          <article class="value-card reveal"><span class="icon">BIM</span><h3>Tecnologia aplicada</h3><p>Facilidade com ferramentas digitais, modelagem e aprendizado de novos fluxos de trabalho.</p></article>
+          <article class="value-card reveal"><span class="icon">ANA</span><h3>Análise técnica</h3><p>Leitura crítica de projetos, identificação de inconsistências e busca por soluções coerentes.</p></article>
+          <article class="value-card reveal"><span class="icon">EQP</span><h3>Trabalho remoto em equipe</h3><p>Comunicação clara, autonomia e postura colaborativa para apoiar coordenador e time a distância.</p></article>
+          <article class="value-card reveal"><span class="icon">EVO</span><h3>Evolução contínua</h3><p>Busca ativa por desenvolvimento em projetos, estruturas, instalações e tecnologia para engenharia.</p></article>
+        </div>
+      </section>
+
+      <section class="section section--tight" id="curriculo">
+        <div class="resume-strip reveal">
+          <div>
+            <p class="eyebrow">Currículo</p>
+            <h2>Currículo focado em projetos estruturais.</h2>
+            <p>Formação, experiências, competências e cursos, em formato pronto para processos seletivos.</p>
+          </div>
+          <a class="button button--primary" href="assets/curriculo-victor-hugo.pdf" download>Baixar currículo em PDF</a>
+        </div>
+      </section>
+
+      <section class="section contact" id="contato">
+        <div class="contact__inner reveal">
+          <p class="eyebrow">Contato</p>
+          <h2>Vamos construir uma conversa técnica?</h2>
+          <p>Disponível para vagas em engenharia estrutural, 100% remoto e com início imediato.</p>
+          <div class="contact__links">
+            <a href="https://wa.me/5535997521004">WhatsApp - (35) 99752-1004</a>
+            <a href="mailto:victorhugocarvalho181@gmail.com">victorhugocarvalho181@gmail.com</a>
+            <a href="https://www.linkedin.com/in/victor-eng/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <strong>Victor Hugo Carvalho - Engenheiro Civil</strong>
+      <span>Projetos estruturais, concreto armado e visão de obra.</span>
+    </footer>
+
+    <dialog id="case-estrutural">
+      <div class="case-modal">
+        <button class="case-close" data-close>Fechar</button>
+        <p class="eyebrow">Case study</p>
+        <h2>Sobrado real: projeto estrutural completo</h2>
+        <img src="assets/projeto-sobrado/sobrado-modelo-3d.jpg" alt="Modelo estrutural 3D do sobrado" />
+        <h3>Visão geral</h3>
+        <p>
+          Projeto estrutural completo de um sobrado residencial, do subsolo à caixa d'água, contemplando
+          fundação em estacas (tipo C-40, Ø40 cm), blocos de coroamento e vigas de equilíbrio, 22 pilares
+          (P1 a P22), vigas de baldrame, pavimento superior e cobertura, além de laje treliçada com
+          vigotas de concreto e blocos de EPS. Concreto especificado C25 (fck ≥ 25 MPa), aço CA-50 e
+          CA-60, com 10 pranchas de detalhamento executivo.
+        </p>
+        <h3>Minha participação</h3>
+        <p>
+          Execução completa do projeto, do lançamento estrutural ao detalhamento final das pranchas.
+          Foi o maior desafio que aceitei encarar até hoje: assumi a responsabilidade sozinho, busquei
+          diversas consultorias com engenheiros e professores para validar decisões críticas de fundação,
+          pilares e vigas, e entreguei um projeto executável do início ao fim. O aprendizado técnico e de
+          gestão do próprio trabalho foi imenso.
+        </p>
+        <h3>Desafios e aprendizados</h3>
+        <p>
+          O detalhamento reforçou a leitura de quadros de ferragem, compatibilização entre fundação,
+          pilares e vigas, e a importância de seguir rigorosamente a direção de descarregamento das lajes
+          sobre as vigas de apoio.
+        </p>
+        <h3>Pranchas</h3>
+        <div class="tags">
+          <a class="button button--ghost" href="assets/projeto-sobrado/pranchas/planta-locacao.pdf" target="_blank" rel="noreferrer">Planta de locação</a>
+          <a class="button button--ghost" href="assets/projeto-sobrado/pranchas/det-fundacao.pdf" target="_blank" rel="noreferrer">Detalhamento fundação</a>
+          <a class="button button--ghost" href="assets/projeto-sobrado/pranchas/det-pilares.pdf" target="_blank" rel="noreferrer">Detalhamento pilares</a>
+          <a class="button button--ghost" href="assets/projeto-sobrado/pranchas/det-vigas-superior.pdf" target="_blank" rel="noreferrer">Detalhamento vigas</a>
+        </div>
+        <iframe class="pdf-frame" src="assets/projeto-sobrado/pranchas/prancha-estrutural-completa.pdf" title="Prancha estrutural completa em PDF"></iframe>
+      </div>
+    </dialog>
+
+    <dialog id="case-arq">
+      <div class="case-modal">
+        <button class="case-close" data-close>Fechar</button>
+        <p class="eyebrow">Case study</p>
+        <h2>Projeto arquitetônico residencial em BIM</h2>
+        <img src="assets/projeto-arquitetonico/arq-01.jpg" alt="Imagem do projeto arquitetônico" />
+        <h3>Visão geral</h3>
+        <p>
+          Projeto arquitetônico residencial completo, com planta baixa do térreo e do pavimento superior,
+          cortes (AA a FF), fachadas (frontal, fundos e laterais), diagrama de pavimentos e ocupação, taxa
+          de ocupação e de permeabilidade, área a construir, quadro de janelas e lista de ambientes.
+          Desenvolvido em parceria com a Construjr - Empresa Júnior de Engenharia Civil.
+        </p>
+        <h3>Minha participação</h3>
+        <p>
+          Execução completa da concepção arquitetônica, desde o estudo de implantação até o
+          detalhamento final das pranchas. Aceitei o desafio de conduzir o projeto sozinho e recorri a
+          diversas consultorias para validar taxas de ocupação, permeabilidade e compatibilização com a
+          estrutura, o que tornou essa uma das experiências de maior aprendizado da minha formação.
+        </p>
+        <h3>Desafios e aprendizados</h3>
+        <p>O projeto reforçou a importância de pensar arquitetura, estrutura e documentação como partes de um mesmo sistema.</p>
+        <h3>Pranchas</h3>
+        <div class="tags">
+          <a class="button button--ghost" href="assets/projeto-arquitetonico/prancha-arquitetonico.pdf" target="_blank" rel="noreferrer">Abrir PDF completo</a>
+        </div>
+        <iframe class="pdf-frame" src="assets/projeto-arquitetonico/prancha-arquitetonico.pdf" title="Prancha arquitetônica completa em PDF"></iframe>
+      </div>
+    </dialog>
+
+    <dialog id="case-ele">
+      <div class="case-modal">
+        <button class="case-close" data-close>Fechar</button>
+        <p class="eyebrow">Case study</p>
+        <h2>Projeto elétrico residencial</h2>
+        <img src="assets/projeto-eletrico/eletrico-01.jpg" alt="Imagem do projeto elétrico" />
+        <h3>Visão geral</h3>
+        <p>
+          Projeto elétrico residencial completo, com alimentação trifásica 127/220V (3F+N+T) distribuída
+          entre dois quadros (QDC-01 térreo e QDC-02 pavimento superior/cobertura). Contempla plantas de
+          pontos e fiação por pavimento, circuitos de iluminação, TUGs, TUEs (chuveiros, ar-condicionado,
+          bomba da piscina, pressurizador), quadro de cargas com fator de demanda, dimensionamento de
+          condutores e disjuntores, diagrama unifilar e detalhamento dos quadros de distribuição.
+        </p>
+        <h3>Minha participação</h3>
+        <p>
+          Execução completa do projeto elétrico, do quadro de cargas ao detalhamento dos quadros de
+          distribuição. Foi um grande desafio que aceitei assumir integralmente, apoiado por diversas
+          consultorias para conferir o dimensionamento de condutores e disjuntores, e que resultou em um
+          aprendizado técnico muito além do que eu esperava no início.
+        </p>
+        <h3>Resultado</h3>
+        <p>O trabalho fortaleceu a compreensão sobre clareza de projeto, segurança e documentação executiva.</p>
+        <h3>Pranchas</h3>
+        <div class="tags">
+          <a class="button button--ghost" href="assets/projeto-eletrico/prancha-eletrico.pdf" target="_blank" rel="noreferrer">Abrir PDF completo</a>
+        </div>
+        <iframe class="pdf-frame" src="assets/projeto-eletrico/prancha-eletrico.pdf" title="Prancha elétrica completa em PDF"></iframe>
+      </div>
+    </dialog>
+
+    <dialog id="case-hid">
+      <div class="case-modal">
+        <button class="case-close" data-close>Fechar</button>
+        <p class="eyebrow">Case study</p>
+        <h2>Projeto hidrossanitário residencial</h2>
+        <img src="assets/projeto-hidraulico/hidraulico-01.png" alt="Imagem do projeto hidrossanitário" />
+        <h3>Visão geral</h3>
+        <p>
+          Projeto hidrossanitário residencial completo do térreo ao pavimento superior, com redes de água
+          fria e água quente, esgoto sanitário, águas pluviais, caixas de inspeção e sifonadas, condutores
+          pluviais e lista de materiais por pavimento, incluindo isométricos e legendas detalhadas de
+          conexões e diâmetros.
+        </p>
+        <h3>Minha participação</h3>
+        <p>
+          Execução completa do projeto hidrossanitário, das redes de água fria e quente ao esgoto e às
+          águas pluviais. Aceitei esse desafio sozinho, apoiado por diversas consultorias para validar
+          diâmetros, declividades e soluções de reservação, e saí do projeto com um aprendizado técnico
+          muito maior do que eu imaginava quando comecei.
+        </p>
+        <h3>Aprendizado</h3>
+        <p>O projeto ampliou a visão sistêmica sobre instalações e sua integração com arquitetura e estrutura.</p>
+        <h3>Pranchas</h3>
+        <div class="tags">
+          <a class="button button--ghost" href="assets/projeto-hidraulico/prancha-hidraulico.pdf" target="_blank" rel="noreferrer">Abrir PDF completo</a>
+        </div>
+        <iframe class="pdf-frame" src="assets/projeto-hidraulico/prancha-hidraulico.pdf" title="Prancha hidrossanitária completa em PDF"></iframe>
+      </div>
+    </dialog>
+
+    <script>
+      const loader = document.querySelector(".loader");
+      const canvas = document.querySelector("#field");
+      const ctx = canvas.getContext("2d");
+      let width = 0;
+      let height = 0;
+      let points = [];
+
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const total = Math.max(34, Math.floor((width * height) / 30000));
+        points = Array.from({ length: total }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.24,
+          vy: (Math.random() - 0.5) * 0.24,
+        }));
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = "rgba(59, 130, 246, 0.52)";
+        ctx.strokeStyle = "rgba(59, 130, 246, 0.12)";
+        for (const point of points) {
+          point.x += point.vx;
+          point.y += point.vy;
+          if (point.x < 0 || point.x > width) point.vx *= -1;
+          if (point.y < 0 || point.y > height) point.vy *= -1;
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, 1.35, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        for (let i = 0; i < points.length; i += 1) {
+          for (let j = i + 1; j < points.length; j += 1) {
+            const distance = Math.hypot(points[i].x - points[j].x, points[i].y - points[j].y);
+            if (distance < 126) {
+              ctx.globalAlpha = 1 - distance / 126;
+              ctx.beginPath();
+              ctx.moveTo(points[i].x, points[i].y);
+              ctx.lineTo(points[j].x, points[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(draw);
+      }
+
+      function revealOnScroll() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.12 }
+        );
+        document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+      }
+
+      function navSpy() {
+        const links = [...document.querySelectorAll(".nav a[href^='#']")];
+        const sections = links
+          .map((link) => document.querySelector(link.getAttribute("href")))
+          .filter(Boolean);
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              links.forEach((link) => link.classList.remove("is-active"));
+              const active = links.find((link) => link.getAttribute("href") === `#${entry.target.id}`);
+              if (active) active.classList.add("is-active");
+            });
+          },
+          { rootMargin: "-35% 0px -55% 0px" }
+        );
+        sections.forEach((section) => observer.observe(section));
+      }
+
+      function cases() {
+        document.querySelectorAll(".case-trigger").forEach((button) => {
+          button.addEventListener("click", () => {
+            const modal = document.getElementById(button.dataset.case);
+            if (modal) modal.showModal();
+          });
+        });
+        document.querySelectorAll("[data-close]").forEach((button) => {
+          button.addEventListener("click", () => button.closest("dialog").close());
+        });
+      }
+
+      function mobileNav() {
+        const toggle = document.querySelector(".nav-toggle");
+        const nav = document.querySelector(".nav");
+        if (!toggle || !nav) return;
+
+        function closeNav() {
+          nav.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+
+        toggle.addEventListener("click", () => {
+          const isOpen = nav.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        nav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeNav);
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!nav.classList.contains("is-open")) return;
+          if (nav.contains(event.target) || toggle.contains(event.target)) return;
+          closeNav();
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closeNav();
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 980) closeNav();
+        });
+      }
+
+      function hideLoader() {
+        if (loader) loader.classList.add("is-hidden");
+        document.querySelectorAll(".hero .reveal").forEach((element) => element.classList.add("is-visible"));
+      }
+
+      document.addEventListener("DOMContentLoaded", () => setTimeout(hideLoader, 500));
+      window.addEventListener("load", () => setTimeout(hideLoader, 300));
+      setTimeout(hideLoader, 1800);
+      window.addEventListener("resize", resize);
+
+      resize();
+      draw();
+      revealOnScroll();
+      navSpy();
+      cases();
+      mobileNav();
+    </script>
+  </body>
+</html>
